@@ -1,289 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ASTRARUNE.</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-<style>
-  body {
-    margin: 0;
-    background-color: #0f0f11;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astrarune</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-  .card {
-    background: #1a1a1d;
-    padding: 2.5rem 2rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    width: 100%;
-    max-width: 420px;
-    text-align: center;
-    margin-top: 3rem;
-  }
-
-  .logo {
-    width: 220px;
-    margin-bottom: 1.8rem;
-    filter: drop-shadow(0 0 6px #7289da);
-  }
-
-  h1 {
-    font-weight: 600;
-    font-size: 1.8rem;
-    margin-bottom: 0.3rem;
-    color: #fff;
-  }
-
-  p.dev-text {
-    font-weight: 400;
-    font-size: 1rem;
-    color: #bbb;
-    margin-bottom: 2rem;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .input-group {
-    position: relative;
-  }
-
-  input[type="text"],
-  textarea {
-    width: 100%;
-    padding: 1.2rem 1rem 0.4rem;
-    border-radius: 8px;
-    border: none;
-    background: #2a2a30;
-    color: #eee;
-    font-size: 1rem;
-    resize: none;
-  }
-
-  input[type="text"]:focus,
-  textarea:focus {
-    outline: none;
-    background: #35353b;
-  }
-
-  label {
-    position: absolute;
-    left: 1rem;
-    top: 1.15rem;
-    color: #aaa;
-    font-weight: 600;
-    font-size: 0.9rem;
-    pointer-events: none;
-    transition: 0.2s ease all;
-  }
-
-  input[type="text"]:focus + label,
-  input[type="text"]:not(:placeholder-shown) + label,
-  textarea:focus + label,
-  textarea:not(:placeholder-shown) + label {
-    top: 0.3rem;
-    left: 1rem;
-    font-size: 0.7rem;
-    color: #7289da;
-  }
-
-  textarea {
-    min-height: 100px;
-  }
-
-  button {
-    background-color: #7289da;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 1rem;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: #5b6eae;
-  }
-
-  .confirmation {
-    margin-top: 1rem;
-    font-weight: 600;
-    color: #43b581;
-    text-align: center;
-    display: none;
-  }
-
-  .leaks-section {
-    margin: 3rem auto 6rem;
-    max-width: 600px;
-    width: 90%;
-    text-align: center;
-  }
-
-  .leaks-section > img.leaks-banner {
-    max-width: 100%;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    filter: drop-shadow(0 0 10px rgba(114, 137, 218, 0.8));
-  }
-
-  .leak-stack {
-    position: relative;
-    width: 480px;
-    height: 320px;
-    margin: 2rem auto 0;
-  }
-
-  .leak-stack img {
-    position: absolute;
-    width: 240px;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(114, 137, 218, 0.6);
-    transition: transform 0.3s ease;
-  }
-
-  .leak-stack img.leak1 {
-    top: 30px;
-    left: 0;
-    z-index: 1;
-  }
-
-  .leak-stack img.leak2 {
-    top: 0;
-    left: 140px;
-    z-index: 2;
-  }
-
-  .leak-stack img:hover {
-    transform: scale(1.07);
-    z-index: 10;
-  }
-
-  @media (max-width: 480px) {
-    .card {
-      padding: 2rem 1.5rem;
+    body {
+      background: #2e2e2e; /* chill grey bg */
+      color: #fff; /* white text */
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      gap: 20px;
+      overflow: hidden;
+      padding: 0 20px;
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 5rem;
+      letter-spacing: 0.15em;
+      margin: 0;
+      opacity: 0;
+      animation: fadeInDown 1s forwards;
+      animation-delay: 0.3s;
+      color: #fff;
+      text-shadow: 0 0 15px #ffffffaa;
     }
 
-    .logo {
-      width: 160px;
-      margin-bottom: 1.5rem;
+    .underline {
+      width: 150px;
+      height: 4px;
+      background: #00d4ff; /* turkis underline */
+      margin: 0 auto 10px auto;
+      border-radius: 3px;
+      opacity: 0;
+      animation: glowPulse 2.5s infinite ease-in-out;
+      animation-delay: 1.2s;
+      animation-fill-mode: forwards;
     }
 
-    .leaks-section {
-      width: 95%;
+    .subtitle {
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: #fff;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 1.5s;
+      text-shadow: 0 0 8px #ffffffcc;
     }
 
-    .leak-stack {
-      width: 360px;
-      height: 240px;
+    .coming-soon {
+      font-size: 2.5rem;
+      font-style: italic;
+      color: #fff;
+      opacity: 0;
+      animation: bounceIn 1s forwards;
+      animation-delay: 2.2s;
+      text-shadow: 0 0 12px #ccccccbb;
+      animation-fill-mode: forwards;
     }
 
-    .leak-stack img {
-      width: 180px;
+    /* new button container */
+    .download-container {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 3s;
     }
 
-    .leak-stack img.leak1 {
-      top: 25px;
-      left: 0;
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: black;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.25rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px #000000bb;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .download-button:hover {
+      background: #222;
+      box-shadow: 0 0 30px #444444dd;
+    }
+    .download-button img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
     }
 
-    .leak-stack img.leak2 {
-      top: 0;
-      left: 100px;
+    .download-note {
+      font-size: 0.9rem;
+      color: #bbb;
+      font-style: italic;
+      user-select: none;
     }
-  }
-</style>
+
+    #ios-message {
+      display: none;
+      margin-top: 4px;
+      color: #f88;
+      font-style: italic;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* animations */
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        box-shadow: 0 0 10px #00d4ff88, 0 0 20px #00d4ff66;
+      }
+      50% {
+        box-shadow: 0 0 20px #00d4ffcc, 0 0 40px #00d4ffbb;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(-20px);
+      }
+      80% {
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
+  <h1>Astrarune</h1>
+  <div class="underline"></div>
+  <div class="subtitle">THE TURKIS FILES</div>
+  <div class="coming-soon">Coming Soon.</div>
 
-<div class="card">
-  <img src="https://www.astrarune.com/astralogo.png" alt="Astrarune Logo" class="logo" />
-  <h1>welcome to astrarune.com!</h1>
-  <p class="dev-text">sorry. we are in development.</p>
+  <div class="download-container">
+    <button class="download-button" id="windows-btn">
+      <img src="Windows.png" alt="Windows icon" />
+      Available for Windows
+    </button>
+    <div class="download-note">Available for Windows 10 and higher.</div>
 
-  <form id="feedbackForm">
-    <div class="input-group">
-      <input type="text" id="feedbackTitle" name="feedbackTitle" placeholder=" " required autocomplete="off" />
-      <label for="feedbackTitle">Feedback</label>
-    </div>
-    <div class="input-group">
-      <textarea id="feedbackBody" name="feedbackBody" placeholder="This site look's good." required></textarea>
-      <label for="feedbackBody">Feedback Here</label>
-    </div>
-    <button type="submit">Send Feedback for site!</button>
-  </form>
+    <button class="download-button" id="ios-btn" style="margin-top: 12px;">
+      <img src="apple.png" alt="Apple icon" />
+      Available for iOS
+    </button>
+    <div id="ios-message">it's not out yet bruh.</div>
 
-  <div class="confirmation" id="confirmationMsg">Feedback sent to developer.</div>
-</div>
-
-<div class="leaks-section">
-  <img src="https://astrarune.com/leaks.png" alt="Astrarune Leaks Banner" class="leaks-banner" />
-  <div class="leak-stack">
-    <img src="https://astrarune.com/leak1.png" alt="Leak 1" class="leak1" />
-    <img src="https://astrarune.com/leak2.png" alt="VSC Leak" class="leak2" />
+    <img src="slide.png" alt="Slide image" style="margin-top: 20px; max-width: 100%; height: auto;" />
   </div>
-</div>
 
-<script>
-  const form = document.getElementById('feedbackForm');
-  const confirmationMsg = document.getElementById('confirmationMsg');
+  <script>
+    const iosBtn = document.getElementById('ios-btn');
+    const iosMessage = document.getElementById('ios-message');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    iosBtn.addEventListener('click', () => {
+      iosMessage.style.display = 'block';
+    });
 
-    const title = form.feedbackTitle.value.trim();
-    const body = form.feedbackBody.value.trim();
-
-    if (!title || !body) return;
-
-    const webhookUrl = 'https://discord.com/api/webhooks/1386766130567446598/ypZfD03goYTorpKJ13wT5WKw8od9j_CsrgaitvwYuhH3ARefgu9Tcs7ITEaE5Z_i-zvb';
-
-    const payload = {
-      content: null,
-      embeds: [{
-        title: title,
-        description: body,
-        color: 7506394
-      }]
-    };
-
-    try {
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
-      });
-
-      if (response.ok) {
-        confirmationMsg.style.display = 'block';
-        form.reset();
-        setTimeout(() => {
-          confirmationMsg.style.display = 'none';
-        }, 4000);
-      } else {
-        alert('Failed to send feedback. Try again later :(');
-      }
-    } catch (err) {
-      alert('Oops, something went wrong! Check your internet or try again.');
-    }
-  });
-</script>
-
+    // if you want the windows button to do something else, add here
+  </script>
 </body>
 </html>
