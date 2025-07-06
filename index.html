@@ -1,209 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Astrarune</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+    :root {
+      --primary: #a72693;
+      --secondary: #f06292;
+      --background: linear-gradient(to top right, #ffafcc, #8e44ad, #f39c12);
+      --card-bg: rgba(18, 18, 18, 0.85);
+      --accent: #ff4081;
+      --text-light: #eee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
 
     body {
-      background: #2e2e2e; /* chill grey bg */
-      color: #fff; /* white text */
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
-      text-align: center;
-      gap: 20px;
-      overflow: hidden;
-      padding: 0 20px;
+      font-family: 'Quicksand', sans-serif;
+      background: var(--background);
+      background-attachment: fixed;
+      color: var(--text-light);
+      overflow-x: hidden;
+      padding-left: 5vw;
+    }
+
+    header {
+      padding: 6rem 0 3rem;
+      text-align: left;
+      animation: dropIn 1s ease-out forwards;
+      opacity: 0;
     }
 
     h1 {
-      font-size: 5rem;
-      letter-spacing: 0.15em;
+      font-size: 3.5rem;
       margin: 0;
-      opacity: 0;
-      animation: fadeInDown 1s forwards;
-      animation-delay: 0.3s;
+    }
+
+    .subheading {
+      font-size: 1.4rem;
       color: #fff;
-      text-shadow: 0 0 15px #ffffffaa;
+      opacity: 0.8;
+      margin-bottom: 1rem;
     }
 
-    .underline {
-      width: 150px;
-      height: 4px;
-      background: #00d4ff; /* turkis underline */
-      margin: 0 auto 10px auto;
-      border-radius: 3px;
-      opacity: 0;
-      animation: glowPulse 2.5s infinite ease-in-out;
-      animation-delay: 1.2s;
-      animation-fill-mode: forwards;
+    .buttons {
+      margin-top: 2rem;
     }
 
-    .subtitle {
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      color: #fff;
-      opacity: 0;
-      animation: fadeInUp 1s forwards;
-      animation-delay: 1.5s;
-      text-shadow: 0 0 8px #ffffffcc;
-    }
-
-    .coming-soon {
-      font-size: 2.5rem;
-      font-style: italic;
-      color: #fff;
-      opacity: 0;
-      animation: bounceIn 1s forwards;
-      animation-delay: 2.2s;
-      text-shadow: 0 0 12px #ccccccbb;
-      animation-fill-mode: forwards;
-    }
-
-    /* new button container */
-    .download-container {
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      opacity: 0;
-      animation: fadeInUp 1s forwards;
-      animation-delay: 3s;
-    }
-
-    .download-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: black;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 24px;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.25rem;
-      cursor: pointer;
-      box-shadow: 0 0 15px #000000bb;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-    }
-    .download-button:hover {
+    .button {
       background: #222;
-      box-shadow: 0 0 30px #444444dd;
-    }
-    .download-button img {
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
+      color: #fff;
+      border: 2px solid #444;
+      border-radius: 12px;
+      padding: 0.8rem 1.6rem;
+      font-size: 1rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    .download-note {
+    .button:hover {
+      background: var(--accent);
+    }
+
+    .section {
+      max-width: 960px;
+      margin: 5rem 0;
+      padding: 3rem;
+      background: var(--card-bg);
+      border-radius: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: left;
+      line-height: 2;
+      animation: dropIn 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .disclaimer {
+      background: radial-gradient(circle, #000 60%, transparent 100%);
+      padding: 6rem 2rem;
+      margin-bottom: 4rem;
+      text-align: left;
+      font-size: 1.2rem;
+      color: white;
+      animation: dropIn 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .modlist {
+      text-align: left;
+      font-size: 1.2rem;
+      padding-left: 1rem;
+    }
+
+    .note {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      opacity: 0.75;
+    }
+
+    .footer {
+      text-align: left;
+      padding: 4rem 1rem;
       font-size: 0.9rem;
-      color: #bbb;
-      font-style: italic;
-      user-select: none;
+      opacity: 0.6;
     }
 
-    #ios-message {
-      display: none;
-      margin-top: 4px;
-      color: #f88;
-      font-style: italic;
-      font-size: 0.9rem;
-      user-select: none;
-    }
-
-    /* animations */
-
-    @keyframes fadeInDown {
-      0% {
+    @keyframes dropIn {
+      from {
+        transform: translateY(-40px);
         opacity: 0;
-        transform: translateY(-30px);
       }
-      100% {
-        opacity: 1;
+      to {
         transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
         opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes glowPulse {
-      0%, 100% {
-        box-shadow: 0 0 10px #00d4ff88, 0 0 20px #00d4ff66;
-      }
-      50% {
-        box-shadow: 0 0 20px #00d4ffcc, 0 0 40px #00d4ffbb;
-      }
-    }
-
-    @keyframes bounceIn {
-      0% {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      60% {
-        opacity: 1;
-        transform: translateY(-20px);
-      }
-      80% {
-        transform: translateY(10px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
       }
     }
   </style>
 </head>
 <body>
-  <h1>Astrarune</h1>
-  <div class="underline"></div>
-  <div class="subtitle">THE TURKIS FILES</div>
-  <div class="coming-soon">Coming Soon.</div>
-
-  <div class="download-container">
-    <button class="download-button" id="windows-btn">
-      <img src="Windows.png" alt="Windows icon" />
-      Available for Windows
-    </button>
-    <div class="download-note">Available for Windows 10 and higher.</div>
-
-    <button class="download-button" id="ios-btn" style="margin-top: 12px;">
-      <img src="apple.png" alt="Apple icon" />
-      Available for iOS
-    </button>
-    <div id="ios-message">it's not out yet bruh.</div>
-
-    <img src="slide.png" alt="Slide image" style="margin-top: 20px; max-width: 100%; height: auto;" />
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong><br>
+    This website is dedicated to exposing racist behavior and threats made in online group chats. All Nazi imagery has been blurred for compliance with local law and platform rules. This site exists to inform and document only.
   </div>
 
-  <script>
-    const iosBtn = document.getElementById('ios-btn');
-    const iosMessage = document.getElementById('ios-message');
+  <header>
+    <h1>The Turkis Files</h1>
+    <div class="subheading">ASTRARUNE.COM</div>
+    <div class="buttons">
+      <button class="button">Download</button>
+      <button class="button">Browse Evidence</button>
+      <button class="button">FAQ</button>
+    </div>
+  </header>
 
-    iosBtn.addEventListener('click', () => {
-      iosMessage.style.display = 'block';
-    });
+  <section class="section">
+    <h2>Platform Compatibility</h2>
+    <div class="modlist">
+      Windows: ✔️<br>
+      Apple: ✔️<br>
+      Samsung: ✔️<br>
+      Android: ✔️<br>
+      Linux: ✔️<br>
+      iPad: ✔️<br>
+      iPhone: ✔️<br>
+      VR: ❌<br>
+      614L Bespoke AI Family Hub Side-by-Side Fridge Freezer with Family Hub™, Black: ❌
+    </div>
+    <div class="note">✔️ = download support. ❌ = no download support.</div>
+  </section>
 
-    // if you want the windows button to do something else, add here
-  </script>
+  <section class="section">
+    <h2>Legal Note</h2>
+    <p><strong>Turkis cannot take legal action:</strong></p>
+    <p>All messages were sent via a Discord group chat with 10 members, one of them being Turkis. All of this information is public.</p>
+  </section>
+
+  <div class="footer">
+    Domain registered by Namecheap.com • Created by zoe.
+  </div>
 </body>
 </html>
