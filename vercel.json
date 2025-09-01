@@ -2,7 +2,23 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/osu/index.html"
+      "destination": "/index.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "astrarune.com"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "destination": "/osu/index.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "osu.astrarune.com"
+        }
+      ]
     }
   ]
 }
