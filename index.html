@@ -65,6 +65,20 @@
         .hidden {
             display: none;
         }
+
+        /* Style for the overlay text */
+        .overlay-text {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px black; /* Black outline effect */
+            cursor: pointer;
+            z-index: 10;
+        }
     </style>
 </head>
 <body>
@@ -75,6 +89,7 @@
             <button onclick="enterSite()">Enter!</button>
         </div>
     </div>
+    <div id="overlay" class="overlay-text hidden" onclick="goToRealSite()">Click here to go to real site</div>
     <iframe id="new-homepage" class="hidden" src="https://home.astrarune.com"></iframe>
 
     <script>
@@ -82,6 +97,11 @@
             // Hide the initial content and show the iframe
             document.getElementById("content").style.display = "none";
             document.getElementById("new-homepage").classList.remove("hidden");
+            document.getElementById("overlay").classList.remove("hidden");
+        }
+
+        function goToRealSite() {
+            window.location.href = "https://home.astrarune.com"; // Redirect to the real site
         }
     </script>
 </body>
